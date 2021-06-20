@@ -1,0 +1,19 @@
+CREATE TABLE users(id VARCHAR(100) PRIMARY KEY, first_name VARCHAR(100), last_name VARCHAR(100), api_key VARCHAR(255) UNIQUE NOT NULL);
+//ROLL BACK
+DROP TABLE users;
+
+-----------------------------------------------------------------------------------------
+
+CREATE TABLE movies (id VARCHAR(100) PRIMARY KEY, name VARCHAR(100), description VARCHAR(100), director VARCHAR(100));
+//ROLL BACK
+DROP TABLE movies;
+
+-----------------------------------------------------------------------------------------
+
+CREATE TABLE user_movie(user_id VARCHAR(100) NOT NULL,
+movie_id VARCHAR(100) NOT NULL,
+FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,
+FOREIGN KEY(movie_id) REFERENCES movies(id) ON DELETE CASCADE,
+UNIQUE KEY user_movie_id (user_id, movie_id));
+//ROLL BACK
+DROP TABLE user_movie;
