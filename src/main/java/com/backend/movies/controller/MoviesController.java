@@ -30,7 +30,7 @@ public class MoviesController {
      * @param response response to be sent to client
      */
     @GetMapping("/movies/{id}")
-    public void getMovieUsingMovieId(final @RequestParam String apiKey, final @PathVariable String id,
+    public void getMovieUsingMovieId(final @PathVariable String id,
                                      final HttpServletResponse response) throws IOException {
         final Gson gson = new GsonBuilder().serializeNulls().create();
         final String stringResponse;
@@ -77,7 +77,7 @@ public class MoviesController {
      * @param response response to be sent to client
      */
     @GetMapping("/movies")
-    public void getMoviesBasedOnSearchQuery(final @RequestParam String apiKey, final @RequestParam String search,
+    public void getMoviesBasedOnSearchQuery(final @RequestParam String search,
                                             final HttpServletResponse response) throws IOException {
         final Gson gson = new GsonBuilder().serializeNulls().create();
         final String stringResponse;
